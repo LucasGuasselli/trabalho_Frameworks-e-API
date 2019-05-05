@@ -9,7 +9,7 @@ import javax.persistence.Id;
 @Entity
 public class Convidado implements Serializable {	
 	 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 4L;
 	
 	@Id
 	@GeneratedValue

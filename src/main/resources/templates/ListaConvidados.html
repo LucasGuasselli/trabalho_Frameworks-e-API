@@ -7,9 +7,7 @@
 		<title>Lista de Convidados</title>
 	<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
 	<link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet"/>
-</head>
-
-	
+</head>	
 
 <body>
 	<div class="panel panel-default" style="margin: 10px">
@@ -17,15 +15,24 @@
 		<h1 class="panel-title">Lista de convidados</h1>
 	</div>
 	<div class="panel-body">
+	<form class="form-inline" method="POST" style="margin: 20px 0" th:object="${convidado}" th:action="@{/convidados}">
+	<div class="form-group">
+		<input type="text" class="form-control"	placeholder="Nome" th:field="*{nome}"/>
+		<input type="text" class="form-control"	placeholder="Acompanhantes" th:field="*{quantidadeAcompanhantes}"/>
+		<button type="submit" class="btn btn-primary">Adicionar</button>
+	</div>
+</form>
 	<table class="table">
 		<thead>
 			<tr>
+				<th>Id</th>
 				<th>Nome</th>
 				<th>Acompanhantes</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr th:each="convidado : ${convidados}">
+				<td th:text="${convidado.id}"></td>
 				<td th:text="${convidado.nome}"></td>
 				<td th:text="${convidado.quantidadeAcompanhantes}"></td>
 			</tr>
