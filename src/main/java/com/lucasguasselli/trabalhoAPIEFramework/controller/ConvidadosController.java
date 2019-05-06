@@ -15,6 +15,19 @@ public class ConvidadosController {
 	@Autowired
 	private ConvidadoDAO convidadosDAO;
 	
+	@GetMapping("/")
+	public ModelAndView carregarViewInicial() {
+		ModelAndView modelAndView = new ModelAndView("index");
+		// modelAndView.addObject("convidados", convidadosDAO.findAll());
+		// modelAndView.addObject(new Convidado());
+			return modelAndView;
+	}
+	
+	@PostMapping("/")
+	public String direcionar() {
+		return "redirect:/convidados";
+	}
+	
 	@GetMapping("/convidados")
 	public ModelAndView listar() {
 		ModelAndView modelAndView = new ModelAndView("ListaConvidados");
