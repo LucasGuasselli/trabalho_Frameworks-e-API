@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width" />
+		<title>Lista de Militares</title>
+	<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+	<link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet"/>
+</head>	
+
+<body>
+	<div class="panel panel-default" style="margin: 10px">
+	<div class="panel-heading">
+		<h1 class="panel-title">Lista de militares</h1>
+	</div>
+	<div class="panel-body">
+	<form class="form-inline" method="POST" style="margin: 20px 0" th:object="${militar}" th:action="@{/militares}">
+	<div class="form-group">
+		<input type="text" class="form-control"	placeholder="Nome" th:field="*{nome}"/>
+		<input type="text" class="form-control"	placeholder="Posto" th:field="*{posto}"/>
+		<button type="submit" class="btn btn-primary">Adicionar</button>
+	</div>
+</form>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Nome</th>
+				<th>Postos</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="militar : ${militares}">
+				<td th:text="${militar.id}"></td>
+				<td th:text="${militar.nome}"></td>
+				<td th:text="${militar.posto}"></td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	</div>
+	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

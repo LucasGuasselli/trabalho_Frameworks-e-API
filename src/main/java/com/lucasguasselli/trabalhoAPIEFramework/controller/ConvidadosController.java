@@ -18,8 +18,8 @@ public class ConvidadosController {
 	@GetMapping("/")
 	public ModelAndView carregarViewInicial() {
 		ModelAndView modelAndView = new ModelAndView("index");
-		// modelAndView.addObject("convidados", convidadosDAO.findAll());
-		// modelAndView.addObject(new Convidado());
+		 modelAndView.addObject("convidados", convidadosDAO.findAll());
+		 modelAndView.addObject(new Convidado());
 			return modelAndView;
 	}
 	
